@@ -1,0 +1,96 @@
+% Two-column English paper template for ~6 pages
+\documentclass[twocolumn,10pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+% Page layout for ~6 pages double-column
+\geometry{letterpaper,margin=0.75in}
+
+% Title metadata
+\title{Modeling a Strategic Agent in the Electricity Market: \\
+       A Bilevel Optimization Approach}
+\author{Alberto Velasco Rodríguez \\ \small Supervisor: Luis Jesús Fernández Palomino}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a concise study on modeling a strategic agent in the electricity market using bilevel optimization complemented by machine learning baselines. This short paper summarizes the problem, dataset, baseline models, the proposed advanced model, experiments, and discussion of results.
+\end{abstract}
+
+\section*{1. Introduction}
+Motivation and contributions: short description of why modeling strategic agents is important and the main contributions of this work.
+
+\section*{2. Problem}
+Describe the problem: what we try to solve, the bilevel optimization view (leader vs. market), objectives, decision variables, and main challenges (nonconvexity, data scarcity, forecasting uncertainty).
+
+\section*{3. Dataset}
+Explain the data available in the repository: historical estimations, profiles, synthetic random scenarios, and solved estimations. State what the dataset enables (training, validation, stress tests) and what is missing (labels for some strategic behaviors, exogenous features, longer horizons).
+
+\begin{table}[h]
+\centering
+\caption{Dataset summary (placeholder)}
+\begin{tabular}{@{}p{0.28\columnwidth} p{0.65\columnwidth}@{}}
+\toprule
+Component & Description \\
+\midrule
+Profiles & \texttt{esios\_profiles\_processedYYYY.csv} -- demand/profile inputs \\
+Base estimations & \texttt{market\_data.json} -- baseline market data \\
+Solved estimations & \texttt{estimations\_YYYY/} -- ground-truth or solver outputs \\
+Synthetic scenarios & \texttt{random\_gen*\_*.csv} -- stress-testing models \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Market model comparison summary.}
+\label{tab:market_comparison_summary}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & MAE & RMSE & R2 & Time/Sample (ms) \\
+\midrule
+Linear Regression & 4.155 & 9.432 & -0.706 & 0.00106 \\
+Decision Tree & 0.568 & 1.672 & 0.952 & 0.00065 \\
+XGBoost & 0.758 & 1.393 & 0.883 & 0.07434 \\
+LP Solver & 0 & 0 & 1 & 0.08119 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section*{4. Baseline Models}
+Detail baseline models used (e.g., linear regression, decision tree, XGBoost), justification for choice, training setup, and a short analysis of why they succeed or fail on this task (limitations: lack of strategic modeling, inability to capture bilevel interactions, sensitivity to missing features).
+
+\section*{5. Advanced Models}
+Describe the proposed modeling approach: bilevel formulation, surrogate models for the lower-level market response, regularization strategies, training protocol, and hyperparameter choices. Include descriptions of experiments that succeeded and those that failed, and what was learned from failure cases.
+
+\section*{6. Experiments and Results}
+Explain experimental protocol, evaluation metrics (MAE, RMSE, business-relevant metrics), and summarize key quantitative results in a compact table or plot. Discuss variance across scenarios and stability of the proposed approach.
+
+\section*{7. Discussion}
+Interpret results: why errors may remain non-negligible, dataset limitations, model mismatch, solver approximations, and practical implications for market modeling.
+
+\section*{8. Conclusion and Future Work}
+Short conclusions and directions: richer datasets, improved bilevel solvers, incorporation of uncertainty quantification, and broader validation.
+
+\section*{Acknowledgments}
+Optional.
+
+\begin{thebibliography}{9}
+\bibitem{bilevel} Example Reference on bilevel optimization.
+\end{thebibliography}
+
+\end{document}

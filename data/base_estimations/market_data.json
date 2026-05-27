@@ -1,0 +1,113 @@
+{
+    "generators": [
+        {
+            "name": "Solar PV",
+            "type": "RES",
+            "capacity_mw": 0,
+            "annual_gwh": 113411.73999999999,
+            "min_price": -15,
+            "max_price": 5,
+            "profile_key": "solar_pv"
+        },
+        {
+            "name": "Wind (On+Offshore)",
+            "type": "RES",
+            "capacity_mw": 0,
+            "annual_gwh": 113188.74,
+            "min_price": -10,
+            "max_price": 10,
+            "profile_key": "wind_onshore"
+        },
+        {
+            "name": "Run-of-river Hydro",
+            "type": "RES",
+            "capacity_mw": 0,
+            "annual_gwh": 16500,
+            "min_price": 0,
+            "max_price": 15,
+            "profile_key": "hydro"
+        },
+        {
+            "name": "Reservoir Hydro",
+            "type": "Hydro",
+            "capacity_mw": 0,
+            "annual_gwh": 11000,
+            "min_price": 0,
+            "max_price": 25,
+            "profile_key": "flat"
+        },
+        {
+            "name": "Nuclear",
+            "type": "Nuclear",
+            "capacity_mw": 0,
+            "annual_gwh": 35172,
+            "min_price": -20,
+            "max_price": 0,
+            "profile_key": "flat"
+        },
+        {
+            "name": "Biomass/Biogas",
+            "type": "Thermal",
+            "capacity_mw": 0,
+            "annual_gwh": 8000,
+            "min_price": 40,
+            "max_price": 90,
+            "profile_key": "flat"
+        },
+        {
+            "name": "CCGT",
+            "type": "Thermal",
+            "capacity_mw": 0,
+            "annual_gwh": 20153,
+            "min_price": 120,
+            "max_price": 130,
+            "profile_key": "flat"
+        }
+    ],
+    "storage": [
+        {
+            "name": "Li-ion Batteries",
+            "type": "Elec",
+            "power_capacity_mw": 10000,
+            "energy_capacity_mwh": 30000,
+            "efficiency_rt": 0.9,
+            "loss_factor_per_period": 0.0005,
+            "horizon": "Short-term"
+        },
+        {
+            "name": "Pumped-Hydro",
+            "type": "Elec",
+            "power_capacity_mw": 9000,
+            "energy_capacity_mwh": 90000,
+            "efficiency_rt": 0.8,
+            "loss_factor_per_period": 0.0001,
+            "horizon": "Medium-term"
+        }
+    ],
+    "demands": [
+        {
+            "name": "Direct Market",
+            "commodity": "Elec",
+            "annual_gwh": 51250,
+            "min_price": 0,
+            "max_price": 200,
+            "profile_key": "DemandDirect"
+        },
+        {
+            "name": "Retailer",
+            "commodity": "Elec",
+            "annual_gwh": 231909,
+            "min_price": 200,
+            "max_price": 200,
+            "profile_key": "DemandCommercial"
+        },
+        {
+            "name": "H2 production",
+            "commodity": "Elec",
+            "annual_gwh": 10000,
+            "min_price": 100,
+            "max_price": 220,
+            "profile_key": "gas_pipeline_norm"
+        }
+    ]
+}
